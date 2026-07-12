@@ -81,18 +81,20 @@ const popularServices = [
 
 const otherServices = [
 
-    { name: "Discord", price: 1700 },
-    { name: "TikTok", price: 2400 },
-    { name: "Snapchat", price: 2100 },
-    { name: "LinkedIn", price: 2200 },
-    { name: "Microsoft", price: 2500 },
-    { name: "Apple ID", price: 2800 },
+ const otherServices = [
+
     { name: "Amazon", price: 2600 },
-    { name: "Netflix", price: 2400 },
-    { name: "Uber", price: 2200 },
+    { name: "Apple ID", price: 2800 },
+    { name: "Discord", price: 1700 },
+    { name: "LinkedIn", price: 2200 },
     { name: "Lyft", price: 2200 },
+    { name: "Microsoft", price: 2500 },
+    { name: "Netflix", price: 2400 },
+    { name: "Reddit", price: 1800 },
+    { name: "Snapchat", price: 2100 },
     { name: "Steam", price: 1800 },
-    { name: "Reddit", price: 1800 }
+    { name: "TikTok", price: 2400 },
+    { name: "Uber", price: 2200 }
 
 ];
 
