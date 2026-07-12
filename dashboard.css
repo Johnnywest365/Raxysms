@@ -1,298 +1,254 @@
+/* ==========================================
+   RAXYSMS DASHBOARD CSS
+========================================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-
 body{
-
     font-family:'Poppins',sans-serif;
-
     background:#050B18;
-
-    color:white;
-
+    color:#fff;
     min-height:100vh;
-
     padding-bottom:90px;
-
 }
-
-
 
 .dashboard{
-
     width:100%;
-
     max-width:600px;
-
     margin:auto;
-
     padding:20px;
-
 }
-
-
 
 /* ================= HEADER ================= */
 
-
 .top-header{
-
     margin-bottom:25px;
-
 }
-
 
 .logo{
-
     font-size:32px;
-
     font-weight:800;
-
     color:#2563EB;
-
 }
-
 
 .tagline{
-
     color:#94A3B8;
-
     font-size:14px;
-
 }
-
-
-
-
 
 /* ================= WELCOME ================= */
 
-
 .welcome h2{
-
     font-size:22px;
-
     margin-bottom:20px;
-
 }
-
-
-
-
 
 /* ================= WALLET ================= */
 
-
 .wallet-card{
-
-    background:linear-gradient(
-    135deg,
-    #2563EB,
-    #1E40AF
-    );
-
+    background:linear-gradient(135deg,#2563EB,#1E40AF);
     padding:25px;
-
     border-radius:22px;
-
     margin-bottom:25px;
-
-    box-shadow:
-    0 15px 40px rgba(37,99,235,.25);
-
+    box-shadow:0 15px 40px rgba(37,99,235,.25);
 }
-
 
 .wallet-card h4{
-
     font-size:13px;
-
     opacity:.8;
-
 }
-
-
 
 .balance-row{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     margin:15px 0;
-
 }
-
-
 
 .balance-row h1{
-
     font-size:32px;
-
 }
-
-
 
 .balance-row button{
-
     border:none;
-
-    background:white;
-
+    background:#fff;
     color:#2563EB;
-
     padding:10px 15px;
-
     border-radius:12px;
-
     font-weight:600;
-
+    cursor:pointer;
 }
-
-
-
-
 
 .wallet-card p{
-
     font-size:14px;
-
     opacity:.9;
-
 }
 
-
-
-
-
-
-/* ================= BUTTON GRID ================= */
-
+/* ================= QUICK ACTIONS ================= */
 
 .quick-actions{
-
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
-
     gap:10px;
-
-    margin-bottom:20px;
-
+    margin-bottom:25px;
 }
 
-
-
-.quick-actions button,
-.number-options button{
-
-
+.quick-actions button{
     border:none;
-
     background:#111827;
-
-    color:white;
-
-    padding:15px 8px;
-
+    color:#fff;
+    padding:15px 10px;
     border-radius:15px;
-
     font-size:12px;
-
     cursor:pointer;
-
-
+    transition:.3s;
 }
 
-
-
-
-
-pointer;
-
-
+.quick-actions button:hover{
+    background:#1E293B;
 }
 
+/* ================= NUMBER OPTIONS ================= */
 
+.number-options{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-bottom:25px;
+}
 
+.number-btn{
+    background:#111827;
+    border:1px solid #1E293B;
+    border-radius:18px;
+    min-height:120px;
+    color:#fff;
+    text-decoration:none;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    transition:.3s;
+}
 
+.number-btn:hover{
+    background:#182338;
+    border-color:#2563EB;
+    transform:translateY(-3px);
+}
 
+.number-btn div{
+    font-size:40px;
+}
 
+.number-btn span{
+    font-size:15px;
+    font-weight:600;
+    text-align:center;
+}
 
+/* ================= ACTIVATIONS ================= */
 
+.activations{
+    background:#111827;
+    border-radius:18px;
+    padding:18px;
+}
 
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
 
+.section-title h3{
+    font-size:18px;
+}
+
+.section-title button{
+    background:#2563EB;
+    border:none;
+    color:#fff;
+    padding:8px 14px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.table-container{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,
+td{
+    padding:12px;
+    text-align:left;
+    font-size:13px;
+    border-bottom:1px solid #1E293B;
+}
+
+th{
+    color:#94A3B8;
+}
+
+td{
+    color:#fff;
+}
 
 /* ================= BOTTOM NAV ================= */
 
-
 .bottom-nav{
-
     position:fixed;
-
     bottom:0;
-
-    left:0;
-
-    right:0;
-
-
+    left:50%;
+    transform:translateX(-50%);
+    width:100%;
     max-width:600px;
-
-    margin:auto;
-
-
     background:#0F172A;
-
     display:flex;
-
     justify-content:space-around;
-
     padding:15px 5px;
-
-
     border-top:1px solid #1E293B;
-
 }
-
-
 
 .bottom-nav button{
-
     background:none;
-
     border:none;
-
     color:#CBD5E1;
-
     font-size:11px;
-
+    cursor:pointer;
 }
 
-
-
-
+/* ================= MOBILE ================= */
 
 @media(max-width:480px){
 
+    .quick-actions{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-.quick-actions{
+    .balance-row{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
 
-    grid-template-columns:repeat(2,1fr);
+    .balance-row h1{
+        font-size:26px;
+    }
 
-}
-
-
-.balance-row h1{
-
-    font-size:26px;
-
-}
-
+    .number-options{
+        grid-template-columns:1fr;
+    }
 
 }
