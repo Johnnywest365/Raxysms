@@ -31,7 +31,6 @@ const usaBtn = document.getElementById("usaBtn");
 const countriesBtn = document.getElementById("countriesBtn");
 
 const refreshBtn = document.getElementById("refreshBtn");
-
 const activationTable = document.getElementById("activationTable");
 
 const accountsBtn = document.getElementById("accountsBtn");
@@ -72,14 +71,11 @@ async function loadUser() {
     try {
 
         const userRef = doc(db, "users", currentUser.uid);
-
         const snap = await getDoc(userRef);
 
         if (!snap.exists()) {
-
             alert("User profile not found in Firestore.");
             return;
-
         }
 
         const data = snap.data();
@@ -102,7 +98,6 @@ async function loadUser() {
     } catch (error) {
 
         console.error("Dashboard Error:", error);
-
         alert(error.message);
 
     }
@@ -111,35 +106,104 @@ async function loadUser() {
 
 /* ==========================================
    PART 2/5
+   BUTTONS & NAVIGATION
+========================================== */
+
+// Add Funds
+if (addFundsBtn) {
+    addFundsBtn.addEventListener("click", () => {
+        window.location.href = "fund-wallet.html";
+    });
+}
+
+// History Button (Top)
+if (historyBtn) {
+    historyBtn.addEventListener("click", () => {
+        window.location.href = "history.html";
+    });
+}
+
+// Support
+if (supportBtn) {
+    supportBtn.addEventListener("click", () => {
+        window.open("https://t.me/RaxySMS", "_blank");
+    });
+}
+
+// Buy USA Number
+if (usaBtn) {
+    usaBtn.addEventListener("click", () => {
+        window.location.href = "usa-numbers.html";
+    });
+}
+
+// Buy All Countries
+if (countriesBtn) {
+    countriesBtn.addEventListener("click", () => {
+        window.location.href = "countries.html";
+    });
+}
+
+// Refresh
+if (refreshBtn) {
+    refreshBtn.addEventListener("click", () => {
+        location.reload();
+    });
+}
+
+/* ==========================================
    BOTTOM NAVIGATION
 ========================================== */
 
 // Buy Account
-accountsBtn?.addEventListener("click", () => {
-    window.location.href = "buy-account.html";
-});
+if (accountsBtn) {
+    accountsBtn.addEventListener("click", () => {
+        window.location.href = "buy-account.html";
+    });
+}
 
 // History
-historyBottomBtn?.addEventListener("click", () => {
-    window.location.href = "history.html";
-});
+if (historyBottomBtn) {
+    historyBottomBtn.addEventListener("click", () => {
+        window.location.href = "history.html";
+    });
+}
 
 // Home
-document.querySelector(".nav-home")?.addEventListener("click", () => {
-    window.location.href = "dashboard.html";
-});
+const homeBtn = document.getElementById("homeBtn");
+
+if (homeBtn) {
+    homeBtn.addEventListener("click", () => {
+        window.location.href = "dashboard.html";
+    });
+}
 
 // API
-apiBtn?.addEventListener("click", () => {
-    window.location.href = "api.html";
-});
+if (apiBtn) {
+    apiBtn.addEventListener("click", () => {
+        window.location.href = "api.html";
+    });
+}
 
 // Logout
-logoutBtn?.addEventListener("click", async () => {
-    try {
-        await signOut(auth);
-        window.location.href = "login.html";
-    } catch (error) {
-        alert(error.message);
-    }
-});
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", async () => {
+
+        const confirmLogout = confirm("Are you sure you want to logout?");
+
+        if (!confirmLogout) return;
+
+        try {
+
+            await signOut(auth);
+            window.location.href = "login.html";
+
+        } catch (error) {
+
+            console.error(error);
+            alert(error.message);
+
+        }
+
+    });
+}
