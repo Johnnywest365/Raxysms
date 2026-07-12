@@ -169,3 +169,450 @@
     </div>
 
 </div>
+
+    <!-- ==========================================
+     PAGE STYLE
+========================================== -->
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    background:#050B18;
+    color:#fff;
+    padding-bottom:90px;
+
+}
+
+
+/* ===============================
+   MAIN CONTAINER
+================================ */
+
+.numbers-container{
+
+    width:100%;
+    max-width:650px;
+    margin:auto;
+    padding:20px;
+
+}
+
+
+/* ===============================
+   WALLET CARD
+================================ */
+
+.wallet-card{
+
+    background:linear-gradient(
+        135deg,
+        #2563EB,
+        #7C3AED
+    );
+
+    padding:20px;
+    border-radius:18px;
+    margin-bottom:20px;
+
+}
+
+
+.wallet-card h3{
+
+    font-size:15px;
+    opacity:.8;
+
+}
+
+
+.wallet-card h1{
+
+    margin-top:8px;
+    font-size:28px;
+
+}
+
+
+
+/* ===============================
+   SEARCH
+================================ */
+
+.search-box{
+
+    margin:20px 0;
+
+}
+
+
+.search-box input{
+
+    width:100%;
+    padding:14px 18px;
+
+    border:none;
+    outline:none;
+
+    border-radius:12px;
+
+    background:#111827;
+    color:white;
+
+    font-size:15px;
+
+}
+
+
+
+/* ===============================
+   SERVICE BLOCK
+================================ */
+
+
+.service-block{
+
+    margin-top:25px;
+
+}
+
+
+.service-block h2{
+
+    font-size:18px;
+    margin-bottom:15px;
+
+}
+
+
+
+/* ===============================
+   SERVICE ROW
+================================ */
+
+
+.service-row{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:#111827;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    margin-bottom:12px;
+
+}
+
+
+
+.service-name{
+
+    font-size:15px;
+    font-weight:500;
+
+}
+
+
+
+.service-price{
+
+    color:#FACC15;
+    font-weight:600;
+
+}
+
+
+
+.buy-btn{
+
+    background:#2563EB;
+
+    border:none;
+
+    color:white;
+
+    padding:8px 15px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+
+.buy-btn:hover{
+
+    opacity:.8;
+
+}
+
+
+
+/* ===============================
+   PURCHASE MODAL
+================================ */
+
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.7);
+
+    align-items:center;
+
+    justify-content:center;
+
+    z-index:999;
+
+}
+
+
+
+.modal-box{
+
+    width:90%;
+    max-width:400px;
+
+    background:#111827;
+
+    padding:25px;
+
+    border-radius:20px;
+
+}
+
+
+
+.modal-box h3{
+
+    text-align:center;
+    margin-bottom:20px;
+
+}
+
+
+
+.purchase-info p{
+
+    margin:12px 0;
+
+}
+
+
+
+.modal-actions{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:25px;
+
+}
+
+
+
+.modal-actions button{
+
+    flex:1;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+}
+
+
+
+.cancel-btn{
+
+    background:#374151;
+
+    color:white;
+
+}
+
+
+
+.confirm-btn{
+
+    background:#22C55E;
+
+    color:white;
+
+}
+
+
+
+</style>
+
+    <!-- ==========================================
+     BOTTOM NAVIGATION
+========================================== -->
+
+<nav class="bottom-nav">
+
+
+    <a href="dashboard.html">
+
+        🏠
+        <span>
+            Dashboard
+        </span>
+
+    </a>
+
+
+
+    <a href="usa-numbers.html" class="active">
+
+        📱
+        <span>
+            Numbers
+        </span>
+
+    </a>
+
+
+
+    <a href="fund-wallet.html">
+
+        💰
+        <span>
+            Wallet
+        </span>
+
+    </a>
+
+
+
+    <button id="logoutBtn">
+
+        🚪
+        <span>
+            Logout
+        </span>
+
+    </button>
+
+
+</nav>
+
+
+
+
+<!-- ==========================================
+     BOTTOM NAV STYLE
+========================================== -->
+
+<style>
+
+.bottom-nav{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    background:#0B1220;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    padding:12px 5px;
+
+    border-top:1px solid #1F2937;
+
+    z-index:500;
+
+
+}
+
+
+
+.bottom-nav a,
+.bottom-nav button{
+
+
+    text-decoration:none;
+
+    color:#9CA3AF;
+
+    background:none;
+
+    border:none;
+
+    font-size:13px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:4px;
+
+    cursor:pointer;
+
+
+}
+
+
+
+.bottom-nav a.active{
+
+    color:#2563EB;
+
+}
+
+
+
+.bottom-nav span{
+
+    font-size:12px;
+
+}
+
+
+
+</style>
+
+    <!-- ==========================================
+     FIREBASE + PAGE SCRIPT
+========================================== -->
+
+
+<script type="module" src="./usa-numbers.js"></script>
+
+
+
+</body>
+
+</html>
