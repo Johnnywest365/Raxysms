@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RaxySMS Dashboard</title>
+<title>Dashboard | RaxySMS</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,13 +25,21 @@
 
 <header class="top-header">
 
-<div class="logo">
+<div>
+
+<h1 class="logo">
 RaxySMS
-</div>
+</h1>
 
 <p class="tagline">
-Buy your verification Easy way
+Buy your verification the easy way
 </p>
+
+</div>
+
+<div class="profile-avatar" id="profileAvatar">
+👤
+</div>
 
 </header>
 
@@ -39,11 +47,16 @@ Buy your verification Easy way
 
 <!-- ================= WELCOME ================= -->
 
-<section class="welcome">
+<section class="welcome-section">
 
 <h2>
-Welcome, <span id="userName">User</span>
+Welcome,
+<span id="userName">Loading...</span>
 </h2>
+
+<p>
+Manage your wallet and purchase virtual numbers instantly.
+</p>
 
 </section>
 
@@ -53,15 +66,19 @@ Welcome, <span id="userName">User</span>
 
 <section class="wallet-card">
 
-<h4>
-AVAILABLE BALANCE
-</h4>
+<div class="wallet-top">
 
-<div class="balance-row">
+<div>
+
+<p class="wallet-title">
+AVAILABLE BALANCE
+</p>
 
 <h1>
 ₦<span id="walletBalance">0.00</span>
 </h1>
+
+</div>
 
 <button id="fundWalletBtn">
 + Add Funds
@@ -69,9 +86,29 @@ AVAILABLE BALANCE
 
 </div>
 
-<p>
-Thanks for partnering with us
-</p>
+<div class="wallet-bottom">
+
+<div>
+
+<small>Total Orders</small>
+
+<h4 id="totalOrders">
+0
+</h4>
+
+</div>
+
+<div>
+
+<small>Country</small>
+
+<h4 id="country">
+Nigeria
+</h4>
+
+</div>
+
+</div>
 
 </section>
 
@@ -82,35 +119,65 @@ Thanks for partnering with us
 <section class="quick-actions">
 
 <button id="profileBtn">
-Profile
+👤
+<span>Profile</span>
 </button>
 
 <button id="historyBtn">
-History
+📜
+<span>History</span>
 </button>
 
 <button id="accountsBtn">
-Buy Accounts
+🛒
+<span>Accounts</span>
 </button>
 
 <button id="supportBtn">
-Support
+💬
+<span>Support</span>
 </button>
 
 </section>
 
 
 
-<!-- ================= NUMBER OPTIONS ================= -->
+<!-- ================= BUY NUMBERS ================= -->
 
 <section class="number-options">
 
-<a href="usa-numbers.html" class="number-btn">
-🇺🇸 USA Numbers
+<a href="usa-numbers.html" class="number-card">
+
+<div class="flag">
+🇺🇸
+</div>
+
+<h3>
+USA Numbers
+</h3>
+
+<p>
+Instant SMS Verification
+</p>
+
 </a>
 
-<a href="all-countries.html" class="number-btn">
-🌍 All Countries Numbers
+
+
+<a href="all-countries.html" class="number-card">
+
+<div class="flag">
+🌍
+</div>
+
+<h3>
+All Countries
+</h3>
+
+<p>
+50+ Countries Available
+</p>
+
 </a>
 
 </section>
@@ -121,11 +188,11 @@ Support
 
 <section class="activations">
 
-<div class="section-title">
+<div class="section-header">
 
-<h3>
+<h2>
 ⭐ Recent Activations
-</h3>
+</h2>
 
 <button id="refreshBtn">
 Refresh
@@ -133,7 +200,7 @@ Refresh
 
 </div>
 
-<div class="table-container">
+<div class="table-wrapper">
 
 <table>
 
@@ -143,10 +210,9 @@ Refresh
 
 <th>Service</th>
 <th>Number</th>
-<th>SMS Code</th>
+<th>Code</th>
 <th>Price</th>
 <th>Status</th>
-<th>Date</th>
 
 </tr>
 
@@ -156,7 +222,7 @@ Refresh
 
 <tr>
 
-<td colspan="6">
+<td colspan="5">
 No activations yet
 </td>
 
@@ -177,23 +243,61 @@ No activations yet
 <nav class="bottom-nav">
 
 <button id="ordersBtn">
-My Orders
+
+📦
+
+<span>
+Orders
+</span>
+
 </button>
+
+
 
 <button id="walletBtn">
-+ Add Funds
+
+💳
+
+<span>
+Wallet
+</span>
+
 </button>
+
+
 
 <button class="active">
+
+🏠
+
+<span>
 Home
+</span>
+
 </button>
+
+
 
 <button id="apiBtn">
+
+⚡
+
+<span>
 API
+</span>
+
 </button>
 
+
+
 <button id="logoutBtn">
+
+🚪
+
+<span>
 Logout
+</span>
+
 </button>
 
 </nav>
@@ -203,5 +307,4 @@ Logout
 <script type="module" src="dashboard.js"></script>
 
 </body>
-
 </html>
