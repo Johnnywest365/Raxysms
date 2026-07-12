@@ -33,18 +33,26 @@
 <header class="numbers-header">
 
 
+<a href="dashboard.html" class="back-btn">
+←
+</a>
+
+
+<div>
+
 <h1>
 🇺🇸 USA Numbers
 </h1>
 
 
 <p>
-Number for verification
+Instant verification numbers
 </p>
+
+</div>
 
 
 </header>
-
 
 
 
@@ -57,7 +65,7 @@ Number for verification
 
 <input 
 type="search"
-id="searchInput"
+id="searchNumbers"
 placeholder="🔍 Search services...">
 
 
@@ -68,48 +76,19 @@ placeholder="🔍 Search services...">
 
 
 
-<!-- TABLE HEADER -->
-
-<div class="service-table-header">
-
-
-<span>
-Service
-</span>
-
-
-<span>
-Price
-</span>
-
-
-<span>
-Action
-</span>
-
-
-</div>
-
-
-
-
-
-
-
 <!-- POPULAR SERVICES -->
 
-<section class="service-section">
+<section class="number-section">
 
 
 <h2>
-⭐ POPULAR
+⭐ Popular Services
 </h2>
 
 
-<div id="popularServices" class="service-list">
-
-
-<!-- Popular services will load here -->
+<div 
+id="popularServices"
+class="services-container">
 
 
 </div>
@@ -123,29 +102,26 @@ Action
 
 
 
+<!-- OTHER SERVICES -->
 
-<!-- ALL OTHER SERVICES -->
-
-
-<section class="service-section">
+<section class="number-section">
 
 
 <h2>
-🚀 ALL OTHERS
+🚀 All Other Services
 </h2>
 
 
-
-<div id="otherServices" class="service-list">
-
-
-<!-- Other services will load here -->
+<div 
+id="otherServices"
+class="services-container">
 
 
 </div>
 
 
 </section>
+
 
 
 
@@ -159,33 +135,56 @@ Action
 <nav class="bottom-nav">
 
 
-<button>
+<a href="orders.html">
+
+<span>📦</span>
 My Orders
-</button>
+
+</a>
 
 
-<button>
-+ Add Funds
-</button>
+
+<a href="fund-wallet.html">
+
+<span>💳</span>
+Add Funds
+
+</a>
 
 
-<button>
+
+
+<a href="dashboard.html" class="active">
+
+<span>🏠</span>
 Home
-</button>
+
+</a>
 
 
-<button>
+
+
+<a href="api.html">
+
+<span>⚡</span>
 API
-</button>
+
+</a>
 
 
-<button>
+
+
+<a href="#" id="logoutBtn">
+
+<span>🚪</span>
 Logout
-</button>
+
+</a>
 
 
 
 </nav>
+
 
 
 
