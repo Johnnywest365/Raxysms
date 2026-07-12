@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="numbers.css">
 
@@ -19,170 +19,153 @@
 
 <body>
 
-<div class="numbers-page">
+<div class="container">
 
-<!-- HEADER -->
+    <!-- Header -->
 
-<header class="numbers-header">
+    <header class="header">
 
-<a href="dashboard.html" class="back-btn">
-←
-</a>
+        <div>
 
-<div>
+            <h1>🇺🇸 USA Numbers</h1>
 
-<h1>
-🇺🇸 USA Numbers
-</h1>
+            <p>Buy USA virtual numbers for SMS verification</p>
 
-<p>
-Instant verification numbers
-</p>
+        </div>
 
-</div>
+        <div class="wallet">
 
-</header>
+            Wallet:
+            <strong id="walletBalance">₦0</strong>
+
+        </div>
+
+    </header>
+
+    <!-- Search -->
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Search services...">
+
+    </div>
+
+    <!-- Table Header -->
+
+    <div class="table-header">
+
+        <span>Service</span>
+
+        <span>Price</span>
+
+        <span>Action</span>
+
+    </div>
+
+  <!-- ==========================================
+     SERVICES AREA
+========================================== -->
+
+<section class="services-section">
+
+    <!-- Popular Services -->
+    <div class="service-block">
+
+        <h2>
+            ⭐ Popular Services
+        </h2>
+
+        <div id="popularServices" class="service-table">
+
+            <!-- Popular services loaded from Firebase -->
+
+        </div>
+
+    </div>
 
 
+    <!-- All Other Services -->
+    <div class="service-block">
 
-<!-- SEARCH -->
+        <h2>
+            🌍 All Services
+        </h2>
 
-<div class="search-box">
+        <div id="otherServices" class="service-table">
 
-<input
-type="search"
-id="searchInput"
-placeholder="🔍 Search services...">
+            <!-- Other services loaded from Firebase -->
 
-</div>
+        </div>
 
+    </div>
 
-
-<!-- POPULAR SERVICES -->
-
-<section class="number-section">
-
-<h2>
-⭐ Popular Services
-</h2>
-
-<div
-id="popularServices"
-class="services-container">
-
-</div>
 
 </section>
 
 
 
-<!-- OTHER SERVICES -->
+<!-- ==========================================
+     PURCHASE MODAL
+========================================== -->
 
-<section class="number-section">
+<div id="purchaseModal" class="modal">
 
-<h2>
-🚀 All Other Services
-</h2>
+    <div class="modal-box">
 
-<div
-id="otherServices"
-class="services-container">
-
-</div>
-
-</section>
+        <h3>
+            Confirm Purchase
+        </h3>
 
 
+        <div class="purchase-info">
 
-<!-- PURCHASE MODAL -->
-
-<div id="buyModal" class="buy-modal">
-
-<div class="buy-modal-content">
-
-<span id="closeModal" class="close-modal">
-&times;
-</span>
-
-<h2>
-Purchase Number
-</h2>
-
-<div class="purchase-info">
-
-<p>
-<strong>Country:</strong>
-🇺🇸 USA
-</p>
-
-<p>
-<strong>Service:</strong>
-<span id="selectedService">-</span>
-</p>
-
-<p>
-<strong>Price:</strong>
-₦<span id="selectedPrice">0</span>
-</p>
-
-</div>
-
-<button id="confirmPurchase" class="confirm-btn">
-
-Confirm Purchase
-
-</button>
-
-</div>
-
-</div>
+            <p>
+                Service:
+                <span id="modalService">
+                    
+                </span>
+            </p>
 
 
+            <p>
+                Country:
+                <span>
+                    🇺🇸 USA
+                </span>
+            </p>
 
-<!-- BOTTOM NAV -->
 
-<nav class="bottom-nav">
+            <p>
+                Price:
+                ₦<span id="modalPrice">
+                    
+                </span>
+            </p>
 
-<a href="orders.html">
+        </div>
 
-<span>📦</span>
-My Orders
 
-</a>
+        <div class="modal-actions">
 
-<a href="fund-wallet.html">
+            <button 
+                id="cancelPurchase"
+                class="cancel-btn">
+                Cancel
+            </button>
 
-<span>💳</span>
-Add Funds
 
-</a>
+            <button 
+                id="confirmPurchase"
+                class="confirm-btn">
+                Confirm Purchase
+            </button>
 
-<a href="dashboard.html" class="active">
+        </div>
 
-<span>🏠</span>
-Home
 
-</a>
-
-<a href="api.html">
-
-<span>⚡</span>
-API
-
-</a>
-
-<a href="#" id="logoutBtn">
-
-<span>🚪</span>
-Logout
-
-</a>
-
-</nav>
+    </div>
 
 </div>
-
-<script type="module" src="usa-numbers.js"></script>
-
-</body>
-</html>
