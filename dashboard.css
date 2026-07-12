@@ -213,105 +213,8 @@ body{
 
 
 
-/* ================= NUMBERS ================= */
+pointer;
 
-
-.number-options{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:15px;
-
-    margin-bottom:25px;
-
-}
-
-
-
-.number-btn{
-
-    font-size:14px;
-
-    padding:20px 10px;
-
-    border:1px solid #1E293B;
-
-    border-radius:15px;
-
-    background:#0D162B;
-
-    color:white;
-
-    text-decoration:none;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    transition:0.3s;
-
-}
-
-
-
-.number-btn:hover{
-
-    border-color:#2563EB;
-
-    transform:translateY(-2px);
-
-}
-
-
-
-/* ================= ACTIVATIONS ================= */
-
-
-.activations{
-
-    background:#0F172A;
-
-    border-radius:20px;
-
-    padding:20px;
-
-}
-
-
-
-.section-title{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:15px;
-
-}
-
-
-
-.section-title h3{
-
-    font-size:16px;
-
-}
-
-
-
-.section-title button{
-
-    background:none;
-
-    border:none;
-
-    color:#3B82F6;
 
 }
 
@@ -319,45 +222,7 @@ body{
 
 
 
-.table-container{
 
-    overflow-x:auto;
-
-}
-
-
-
-table{
-
-    width:100%;
-
-    border-collapse:collapse;
-
-    font-size:12px;
-
-}
-
-
-
-th{
-
-    color:#94A3B8;
-
-    padding:12px;
-
-    text-align:left;
-
-}
-
-
-
-td{
-
-    padding:12px;
-
-    border-top:1px solid #1E293B;
-
-}
 
 
 
