@@ -1,0 +1,197 @@
+<body>
+
+<div class="dashboard-container">
+
+    <!-- ==========================
+         HEADER
+    =========================== -->
+    <header class="top-header">
+
+        <div>
+            <h1 class="logo">RaxySMS</h1>
+            <p class="tagline">
+                Buy your verification number cheap price
+            </p>
+        </div>
+
+        <button id="settingsBtn" class="settings-btn">
+            <i class="fas fa-cog"></i>
+        </button>
+
+    </header>
+
+    <!-- ==========================
+         WELCOME
+    =========================== -->
+
+    <section class="welcome-card">
+
+        <h2>
+            Welcome back,
+            <span id="username">
+                Loading...
+            </span>
+            👋
+        </h2>
+
+    </section>
+
+    <!-- ==========================
+         WALLET
+    =========================== -->
+
+    <section class="wallet-card">
+
+        <h3>Available Balance</h3>
+
+        <h1 id="walletBalance">
+            ₦0.00
+        </h1>
+
+        <div class="wallet-actions">
+
+            <button id="fundWalletBtn">
+                ➕ Add Funds
+            </button>
+
+            <button id="historyBtn">
+                📜 History
+            </button>
+
+            <button id="supportBtn">
+                💬 Support
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+         QUICK ACTIONS
+    =========================== -->
+
+    <section class="quick-actions">
+
+        <button
+            id="usaNumbersBtn"
+            class="action-card">
+
+            🇺🇸
+            <span>USA Number</span>
+
+        </button>
+
+        <button
+            id="allCountriesBtn"
+            class="action-card">
+
+            🌍
+            <span>All Countries</span>
+
+        </button>
+
+    </section>
+
+      <!-- ==========================
+         RECENT ACTIVATIONS
+    =========================== -->
+
+    <section class="activations-section">
+
+        <div class="section-header">
+
+            <h2>
+                ⭐ Recent Activations
+            </h2>
+
+            <button id="refreshBtn" class="refresh-btn">
+                <i class="fas fa-rotate-right"></i>
+                Refresh
+            </button>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table class="activations-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Service</th>
+
+                        <th>Number</th>
+
+                        <th>SMS Code</th>
+
+                        <th>Price</th>
+
+                        <th>Status</th>
+
+                        <th>Date</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="activationsTable">
+
+                    <tr>
+
+                        <td colspan="6" class="empty-state">
+
+                            No recent activations.
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+      <!-- ==========================
+         BOTTOM NAVIGATION
+    =========================== -->
+
+    <nav class="bottom-nav">
+
+        <button id="buyAccountBtn" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Buy Account</span>
+        </button>
+
+        <button id="historyNavBtn" class="nav-item">
+            <i class="fas fa-clock-rotate-left"></i>
+            <span>History</span>
+        </button>
+
+        <button id="homeNavBtn" class="nav-item active">
+            <i class="fas fa-house"></i>
+            <span>Home</span>
+        </button>
+
+        <button id="apiBtn" class="nav-item">
+            <i class="fas fa-key"></i>
+            <span>API</span>
+        </button>
+
+        <button id="logoutBtn" class="nav-item logout">
+            <i class="fas fa-right-from-bracket"></i>
+            <span>Logout</span>
+        </button>
+
+    </nav>
+
+</div>
+
+<!-- Dashboard JavaScript -->
+<script type="module" src="dashboard.js"></script>
+
+</body>
+</html>
