@@ -1,0 +1,818 @@
+/* ==========================================
+   RAXYSMS USA NUMBERS
+   PART 1/4
+   Global Styles • Layout • Header • Search
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#08111f;
+    --card:#111c2f;
+    --card2:#16243d;
+    --primary:#2563eb;
+    --primary-dark:#1d4ed8;
+    --green:#22c55e;
+    --red:#ef4444;
+    --orange:#f59e0b;
+    --text:#ffffff;
+    --muted:#9ca3af;
+    --border:rgba(255,255,255,.08);
+    --shadow:0 12px 35px rgba(0,0,0,.35);
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    overflow-x:hidden;
+    padding-bottom:100px;
+}
+
+/* ==========================
+   PAGE CONTAINER
+========================== */
+
+.page{
+    width:100%;
+    max-width:650px;
+    margin:0 auto;
+    padding:20px 16px 120px;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.page-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.page-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.page-title h2{
+    font-size:24px;
+    font-weight:700;
+}
+
+.page-title span{
+    font-size:26px;
+}
+
+.logout-btn{
+    border:none;
+    outline:none;
+    background:#dc2626;
+    color:#fff;
+    padding:10px 18px;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.logout-btn:hover{
+    background:#b91c1c;
+}
+
+/* ==========================
+   WALLET CARD
+========================== */
+
+.wallet-card{
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:22px;
+    box-shadow:var(--shadow);
+}
+
+.wallet-label{
+    font-size:13px;
+    opacity:.9;
+}
+
+.wallet-balance{
+    margin-top:8px;
+    font-size:30px;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+/* ==========================
+   SEARCH
+========================== */
+
+.search-box{
+    margin-bottom:18px;
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    height:52px;
+    border:none;
+    outline:none;
+    border-radius:14px;
+    background:var(--card);
+    color:#fff;
+    padding:0 18px;
+    font-size:15px;
+    border:1px solid var(--border);
+    transition:.25s;
+}
+
+.search-box input::placeholder{
+    color:var(--muted);
+}
+
+.search-box input:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px rgba(37,99,235,.18);
+}
+
+/* ==========================
+   TABLE
+========================== */
+
+.services-table{
+    width:100%;
+    background:var(--card);
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+}
+
+.table-header{
+    display:grid;
+    grid-template-columns:1.8fr .8fr .8fr;
+    align-items:center;
+    background:var(--card2);
+    padding:16px 18px;
+    font-size:14px;
+    font-weight:700;
+    color:#d1d5db;
+    border-bottom:1px solid var(--border);
+}
+
+#servicesContainer{
+    width:100%;
+}
+
+/* ==========================================
+   RAXYSMS USA NUMBERS
+   PART 2/4
+   Service Rows • Buy Button • Bottom Navigation
+========================================== */
+
+/* ==========================
+   SERVICE ROWS
+========================== */
+
+.service-row{
+    display:grid;
+    grid-template-columns:1.8fr .8fr .8fr;
+    align-items:center;
+    padding:16px 18px;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    transition:.25s ease;
+}
+
+.service-row:last-child{
+    border-bottom:none;
+}
+
+.service-row:hover{
+    background:rgba(37,99,235,.08);
+}
+
+.service-name{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:15px;
+    font-weight:600;
+    color:#fff;
+    word-break:break-word;
+}
+
+.service-name .flag{
+    font-size:18px;
+    flex-shrink:0;
+}
+
+.service-price{
+    font-size:15px;
+    font-weight:700;
+    color:#facc15;
+}
+
+.service-action{
+    display:flex;
+    justify-content:flex-end;
+}
+
+/* ==========================
+   BUY BUTTON
+========================== */
+
+.buy-btn{
+    border:none;
+    outline:none;
+    cursor:pointer;
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:#fff;
+    font-size:14px;
+    font-weight:600;
+    padding:10px 18px;
+    border-radius:10px;
+    transition:.25s ease;
+    min-width:80px;
+    box-shadow:0 8px 18px rgba(37,99,235,.25);
+}
+
+.buy-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 24px rgba(37,99,235,.35);
+}
+
+.buy-btn:active{
+    transform:scale(.97);
+}
+
+.buy-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none;
+    box-shadow:none;
+}
+
+/* ==========================
+   EMPTY SEARCH
+========================== */
+
+.empty-state{
+    text-align:center;
+    padding:40px 20px;
+    color:#9ca3af;
+    font-size:15px;
+}
+
+.empty-state h3{
+    color:#fff;
+    margin-bottom:8px;
+    font-size:18px;
+}
+
+/* ==========================
+   PURCHASE CONFIRM MODAL
+========================== */
+
+.confirm-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(8px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:900;
+    padding:20px;
+}
+
+.confirm-overlay.active{
+    display:flex;
+}
+
+.confirm-card{
+    width:100%;
+    max-width:380px;
+    background:#111c2f;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:24px;
+    animation:popupScale .25s ease;
+}
+
+.confirm-card h2{
+    font-size:22px;
+    margin-bottom:18px;
+    text-align:center;
+}
+
+.confirm-info{
+    margin-bottom:20px;
+}
+
+.confirm-item{
+    display:flex;
+    justify-content:space-between;
+    margin:10px 0;
+    font-size:15px;
+}
+
+.confirm-item span:first-child{
+    color:#9ca3af;
+}
+
+.confirm-item span:last-child{
+    font-weight:600;
+    color:#fff;
+}
+
+.confirm-actions{
+    display:flex;
+    gap:12px;
+    margin-top:24px;
+}
+
+.confirm-actions button{
+    flex:1;
+    border:none;
+    cursor:pointer;
+    padding:12px;
+    border-radius:12px;
+    font-weight:600;
+    font-size:15px;
+    transition:.25s;
+}
+
+.cancel-btn{
+    background:#374151;
+    color:#fff;
+}
+
+.cancel-btn:hover{
+    background:#4b5563;
+}
+
+.confirm-btn{
+    background:#2563eb;
+    color:#fff;
+}
+
+.confirm-btn:hover{
+    background:#1d4ed8;
+}
+
+/* ==========================
+   BOTTOM NAVIGATION
+========================== */
+
+.bottom-nav{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:72px;
+    background:#111c2f;
+    border-top:1px solid rgba(255,255,255,.08);
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    z-index:100;
+}
+
+.bottom-nav a{
+    text-decoration:none;
+    color:#9ca3af;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+    font-size:12px;
+    font-weight:500;
+    transition:.25s;
+}
+
+.bottom-nav a i{
+    font-size:20px;
+}
+
+.bottom-nav a.active{
+    color:#3b82f6;
+}
+
+.bottom-nav a:hover{
+    color:#fff;
+}
+
+/* ==========================================
+   RAXYSMS USA NUMBERS
+   PART 3/4
+   Full-Screen Overlays
+========================================== */
+
+/* ==========================
+   FULL SCREEN OVERLAYS
+========================== */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    background:#08111f;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+    padding:24px;
+    overflow:hidden;
+}
+
+.overlay.active{
+    display:flex;
+}
+
+/* Dark background behind popup */
+.overlay::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(8,17,31,.96);
+    backdrop-filter:blur(10px);
+}
+
+/* ==========================
+   OVERLAY CARD
+========================== */
+
+.overlay-card{
+    position:relative;
+    width:100%;
+    max-width:420px;
+    background:#111c2f;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    padding:36px 28px;
+    text-align:center;
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
+    animation:popupScale .28s ease;
+    z-index:2;
+}
+
+/* ==========================
+   ICON CIRCLE
+========================== */
+
+.overlay-icon{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 22px;
+    font-size:42px;
+    color:#fff;
+}
+
+/* Success */
+
+.success-overlay .overlay-icon{
+    background:linear-gradient(135deg,#22c55e,#16a34a);
+    box-shadow:0 0 35px rgba(34,197,94,.35);
+}
+
+/* Rental Failed */
+
+.failed-overlay .overlay-icon{
+    background:linear-gradient(135deg,#ef4444,#dc2626);
+    box-shadow:0 0 35px rgba(239,68,68,.35);
+}
+
+/* Out of Stock */
+
+.stock-overlay .overlay-icon{
+    background:linear-gradient(135deg,#f59e0b,#d97706);
+    box-shadow:0 0 35px rgba(245,158,11,.35);
+}
+
+/* Loading */
+
+.loading-overlay .overlay-icon{
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    box-shadow:0 0 35px rgba(37,99,235,.35);
+}
+
+/* ==========================
+   TEXT
+========================== */
+
+.overlay-card h2{
+    font-size:26px;
+    font-weight:700;
+    margin-bottom:14px;
+    color:#fff;
+}
+
+.overlay-card p{
+    font-size:15px;
+    line-height:1.7;
+    color:#cbd5e1;
+    margin-bottom:18px;
+}
+
+/* ==========================
+   INFO BOX
+========================== */
+
+.overlay-info{
+    background:#16243d;
+    border-radius:14px;
+    padding:16px;
+    margin-top:18px;
+}
+
+.overlay-info div{
+    display:flex;
+    justify-content:space-between;
+    margin:10px 0;
+    font-size:15px;
+}
+
+.overlay-info span:first-child{
+    color:#94a3b8;
+}
+
+.overlay-info span:last-child{
+    color:#fff;
+    font-weight:600;
+}
+
+/* ==========================
+   LOADING SPINNER
+========================== */
+
+.loader{
+    width:70px;
+    height:70px;
+    margin:0 auto 22px;
+    border:6px solid rgba(255,255,255,.15);
+    border-top:6px solid #3b82f6;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+}
+
+/* ==========================
+   STATUS COLORS
+========================== */
+
+.success-text{
+    color:#22c55e;
+}
+
+.failed-text{
+    color:#ef4444;
+}
+
+.warning-text{
+    color:#f59e0b;
+}
+
+.loading-text{
+    color:#60a5fa;
+}
+
+/* ==========================================
+   RAXYSMS USA NUMBERS
+   PART 4/4
+   Animations • Responsive • Final Polish
+========================================== */
+
+/* ==========================
+   ANIMATIONS
+========================== */
+
+@keyframes popupScale{
+    0%{
+        opacity:0;
+        transform:scale(.88) translateY(20px);
+    }
+    100%{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+@keyframes fadeOut{
+    from{
+        opacity:1;
+    }
+    to{
+        opacity:0;
+    }
+}
+
+@keyframes spin{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.06);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+.overlay.active{
+    animation:fadeIn .25s ease;
+}
+
+.overlay-card{
+    animation:popupScale .28s ease;
+}
+
+.overlay-icon{
+    animation:pulse 1.6s ease-in-out infinite;
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+    width:6px;
+}
+
+::-webkit-scrollbar-track{
+    background:#08111f;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#3b82f6;
+}
+
+/* ==========================
+   INPUT AUTOFILL
+========================== */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus{
+    -webkit-text-fill-color:#ffffff;
+    -webkit-box-shadow:0 0 0px 1000px #111c2f inset;
+    transition:background-color 9999s ease-in-out 0s;
+}
+
+/* ==========================
+   BUTTON TRANSITIONS
+========================== */
+
+button,
+a{
+    transition:all .25s ease;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width:600px){
+
+    .page{
+        padding:16px 12px 100px;
+    }
+
+    .page-title h2{
+        font-size:20px;
+    }
+
+    .wallet-balance{
+        font-size:26px;
+    }
+
+    .table-header,
+    .service-row{
+        grid-template-columns:1.5fr .8fr .8fr;
+        padding:14px 12px;
+        gap:8px;
+        font-size:13px;
+    }
+
+    .service-name{
+        font-size:14px;
+    }
+
+    .service-price{
+        font-size:14px;
+    }
+
+    .buy-btn{
+        min-width:70px;
+        padding:9px 14px;
+        font-size:13px;
+    }
+
+    .confirm-card,
+    .overlay-card{
+        max-width:100%;
+        padding:24px 20px;
+        border-radius:20px;
+    }
+
+    .overlay-icon{
+        width:76px;
+        height:76px;
+        font-size:34px;
+    }
+
+    .overlay-card h2{
+        font-size:22px;
+    }
+
+    .overlay-card p{
+        font-size:14px;
+    }
+
+    .loader{
+        width:60px;
+        height:60px;
+    }
+
+    .bottom-nav{
+        height:68px;
+    }
+
+    .bottom-nav a{
+        font-size:11px;
+    }
+
+    .bottom-nav a i{
+        font-size:18px;
+    }
+}
+
+/* ==========================
+   SMALL DEVICES
+========================== */
+
+@media (max-width:380px){
+
+    .table-header,
+    .service-row{
+        grid-template-columns:1.4fr .7fr .8fr;
+        font-size:12px;
+    }
+
+    .buy-btn{
+        min-width:64px;
+        padding:8px 12px;
+        font-size:12px;
+    }
+
+    .wallet-balance{
+        font-size:22px;
+    }
+
+    .overlay-card h2{
+        font-size:20px;
+    }
+}
+
+/* ==========================================
+   END OF numbers.css
+========================================== */
