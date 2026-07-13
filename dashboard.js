@@ -360,6 +360,7 @@ async function refreshDashboard() {
 
     await refreshWallet();
     await loadActivations();
+    await loadActiveNumbers();
 
 }
 
