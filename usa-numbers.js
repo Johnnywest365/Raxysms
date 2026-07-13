@@ -3,14 +3,11 @@
    STEP 1 - SERVICE SEARCH & SELECTION
 ========================================== */
 
-
 import { auth, db } from "./firebase.js";
-
 
 import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
 
 import {
     collection,
@@ -19,11 +16,15 @@ import {
     getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+/* ==========================================
+   DEBUG
+========================================== */
 
+console.log("✅ usa-numbers.js loaded");
 
-
-
-// Elements
+/* ==========================================
+   DOM ELEMENTS
+========================================== */
 
 const username = document.getElementById("username");
 
@@ -39,13 +40,17 @@ const totalPrice = document.getElementById("totalPrice");
 
 const continueBtn = document.getElementById("continuePurchase");
 
-
-
-
+/* ==========================================
+   GLOBAL VARIABLES
+========================================== */
 
 let allServices = [];
 
 let selectedServiceData = null;
+
+console.log("Search Input:", searchInput);
+console.log("Service Results:", serviceResults);
+console.log("Continue Button:", continueBtn);
 
 
 
