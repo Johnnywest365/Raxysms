@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RaxySMS - USA Numbers</title>
+
+    <link rel="stylesheet" href="usa-numbers.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="usa-container">
+
+
+    <!-- Header -->
+
+    <div class="logo">
+        RaxySMS
+    </div>
+
+
+    <div class="divider"></div>
+
+
+
+    <!-- User Greeting -->
+
+    <div class="welcome">
+
+        <h2>
+            Hi, <span id="username">Username</span> 👋
+        </h2>
+
+    </div>
+
+
+
+    <!-- USA Number Info -->
+
+    <div class="usa-info">
+
+        <h1>
+            🇺🇸 USA SMS VERIFICATION - NUMBER
+        </h1>
+
+        <p>
+            USA numbers only. Fast and reliable SMS verification.
+        </p>
+
+    </div>
+
+
+
+    <div class="divider"></div>
+
+
+
+    <!-- Service Search Section -->
+
+
+    <div class="service-section">
+
+
+        <h3>
+            Select Service
+        </h3>
+
+
+        <p>
+            🔍 Search and select the service you want to verify
+        </p>
+
+
+
+        <input 
+        type="text"
+        id="searchServices"
+        placeholder="Search Services"
+        >
+
+
+
+        <!-- Search Results -->
+
+        <div id="serviceResults">
+
+            <!-- Services will load here from Firebase -->
+
+        </div>
+
+
+    </div>
+
+
+
+
+    <!-- Selected Service -->
+
+    <div id="selectedServiceBox" style="display:none;">
+
+
+        <h3>
+            Selected Service
+        </h3>
+
+
+        <p id="selectedService">
+            
+        </p>
+
+
+        <p>
+            Total Price:
+            <span id="totalPrice">
+                ₦0
+            </span>
+        </p>
+
+
+    </div>
+
+
+
+
+    <div class="divider"></div>
+
+
+
+
+    <!-- Continue Button -->
+
+
+    <button id="continuePurchase">
+
+        Continue Purchase Number
+
+    </button>
+
+
+
+</div>
+
+
+
+
+<script type="module" src="usa-numbers.js"></script>
+
+
+</body>
+</html>
