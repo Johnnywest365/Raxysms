@@ -83,53 +83,36 @@ onAuthStateChanged(auth, async(user)=>{
 // ===============================
 
 
-async function loadServices(){
+async function loadServices() {
 
+    try {
 
-    try{
+        const snapshot = await getDocs(collection(db, "services"));
 
+        allServices = [];
 
-        const snapshot =
-        await getDocs(collection(db,"services"));
+        snapshot.forEach((docSnap) => {
 
+            const data = docSnap.data();
 
-
-        snapshot.forEach((doc)=>{
-
+            console.log("Service Loaded:", data);
 
             allServices.push({
-
-                id:doc.id,
-
-                ...doc.data()
-
+                id: docSnap.id,
+                ...data
             });
-
-
 
         });
 
+        console.log("All Services:", allServices);
 
+    } catch (error) {
+
+        console.error("Load Services Error:", error);
 
     }
-    catch(error){
-
-        console.log(error);
-
-    }
-
 
 }
-
-
-
-
-loadServices();
-
-
-
-
-
 
 
 
