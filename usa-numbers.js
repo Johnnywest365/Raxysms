@@ -52,41 +52,30 @@ console.log("Search Input:", searchInput);
 console.log("Service Results:", serviceResults);
 console.log("Continue Button:", continueBtn);
 
+/* ==========================================
+   AUTH STATE
+========================================== */
 
+onAuthStateChanged(auth, async (user) => {
 
+    if (!user) {
 
-
-// ===============================
-// GET USERNAME
-// ===============================
-
-
-onAuthStateChanged(auth, async(user)=>{
-
-
-    if(user){
-
-
-        username.textContent =
-        user.displayName || user.email.split("@")[0];
-
+        window.location.href = "login.html";
+        return;
 
     }
 
+    username.textContent =
+        user.displayName ||
+        user.email.split("@")[0];
 
+    await loadServices();
 
 });
 
-
-
-
-
-
-
-// ===============================
-// LOAD SERVICES
-// ===============================
-
+/* ==========================================
+   LOAD SERVICES
+========================================== */
 
 async function loadServices() {
 
@@ -104,154 +93,117 @@ async function loadServices() {
 
             const data = docSnap.data();
 
-            console.log("Service:", data);
-
             allServices.push({
+
                 id: docSnap.id,
                 name: data.name,
                 price: Number(data.price)
+
             });
 
         });
 
-        console.log("✅ All Services:", allServices);
+        allServices.sort((a, b) =>
+            a.name.localeCompare(b.name)
+        );
+
+        console.log("✅ Services Loaded:", allServices);
 
     } catch (error) {
 
         console.error("❌ Load Services Error:", error);
 
+        serviceResults.innerHTML = `
+            <div class="service-empty">
+                Failed to load services.
+            </div>
+        `;
+
     }
 
 }
 
+/* ==========================================
+   SEARCH SERVICES
+========================================== */
 
+searchInput.addEventListener("input", () => {
 
-// ===============================
-// SEARCH SERVICES
-// ===============================
-
-
-searchInput.addEventListener("input",()=>{
-
-
-    const value =
-    searchInput.value.toLowerCase();
-
-
+    const value = searchInput.value.trim().toLowerCase();
 
     serviceResults.innerHTML = "";
 
+    if (value === "") {
+        return;
+    }
 
+    const filtered = allServices.filter(service =>
+        service.name.toLowerCase().includes(value)
+    );
 
-    if(value === ""){
+    if (filtered.length === 0) {
+
+        serviceResults.innerHTML = `
+            <div class="service-empty">
+                No matching service found.
+            </div>
+        `;
 
         return;
 
     }
 
+    filtered.forEach(service => {
 
+        const item = document.createElement("div");
 
-    const filtered =
-    allServices.filter(service=>
-
-
-        service.name
-        .toLowerCase()
-        .includes(value)
-
-
-    );
-
-
-
-
-    filtered.forEach(service=>{
-
-
-
-        const item =
-        document.createElement("div");
-
-
-
-        item.className =
-        "service-item";
-
-
+        item.className = "service-item";
 
         item.innerHTML = `
 
-        <span>
-        ${service.name}
-        </span>
+            <span>${service.name}</span>
 
-
-        <span>
-        ₦${service.price.toLocaleString()}
-        </span>
+            <span>₦${service.price.toLocaleString()}</span>
 
         `;
 
+        item.onclick = () => {
 
+            document
+                .querySelectorAll(".service-item")
+                .forEach(el => el.classList.remove("active"));
 
-
-        item.onclick = ()=>{
-
+            item.classList.add("active");
 
             selectedServiceData = service;
 
-
-
-            selectedBox.style.display =
-            "block";
-
-
+            selectedBox.style.display = "block";
 
             selectedService.textContent =
-
-            `${service.name} - ₦${service.price.toLocaleString()}`;
-
-
+                `${service.name} - ₦${service.price.toLocaleString()}`;
 
             totalPrice.textContent =
-
-            `₦${service.price.toLocaleString()}`;
-
-
-
-            serviceResults.innerHTML = "";
+                `₦${service.price.toLocaleString()}`;
 
             searchInput.value = service.name;
 
+            serviceResults.innerHTML = "";
 
         };
 
-
-
-
         serviceResults.appendChild(item);
-
-
 
     });
 
-
-
 });
 
-
-
-
-
-
-
-
-// ===============================
-// CONTINUE PURCHASE
-// ===============================
-
+/* ==========================================
+   CONTINUE PURCHASE
+========================================== */
 
 continueBtn.addEventListener("click", async () => {
+
+    if (continueBtn.disabled) return;
 
     if (!selectedServiceData) {
 
@@ -261,11 +213,13 @@ continueBtn.addEventListener("click", async () => {
     }
 
     continueBtn.disabled = true;
+
     continueBtn.textContent = "Processing...";
 
     await startPurchase();
 
     continueBtn.disabled = false;
+
     continueBtn.textContent = "Continue Purchase Number";
 
 });
@@ -278,16 +232,17 @@ async function startPurchase() {
 
     try {
 
-        // STEP 1
-        // Load latest wallet balance
-
-        const userRef = doc(db, "users", auth.currentUser.uid);
+        const userRef = doc(
+            db,
+            "users",
+            auth.currentUser.uid
+        );
 
         const userSnap = await getDoc(userRef);
 
         if (!userSnap.exists()) {
 
-            alert("User not found.");
+            alert("User account not found.");
             return;
 
         }
@@ -298,8 +253,9 @@ async function startPurchase() {
 
         const price = Number(selectedServiceData.price);
 
-        // STEP 2
-        // Wallet Check
+        /* ==========================
+           WALLET CHECK
+        ========================== */
 
         if (wallet < price) {
 
@@ -310,7 +266,7 @@ async function startPurchase() {
 
             sessionStorage.setItem(
                 "purchaseMessage",
-                `Insufficient Balance. Need ₦${price.toLocaleString()}, You have ₦${wallet.toLocaleString()}`
+                `Insufficient Balance. You need ₦${price.toLocaleString()} but your wallet balance is ₦${wallet.toLocaleString()}.`
             );
 
             window.location.href = "dashboard.html";
@@ -319,15 +275,17 @@ async function startPurchase() {
 
         }
 
-        // STEP 3
-        // Next:
-        // Request number from backend
+        /* ==========================
+           BACKEND STEP
+        ========================== */
 
-        alert("Wallet check passed. Backend connection is the next step.");
+        alert(
+            "Wallet check passed.\n\nNext step: Connect securely to the TextVerified backend to rent a USA number."
+        );
 
     } catch (error) {
 
-        console.error(error);
+        console.error("Purchase Error:", error);
 
         alert(error.message);
 
