@@ -52,8 +52,6 @@ let currentUser = null;
 let wallet = 0;
 
 let services = [];
-let popular = [];
-let others = [];
 
 /* ==========================================
    BALANCE MODAL FUNCTIONS
@@ -368,13 +366,11 @@ async function openPurchase(service) {
 
     if (wallet < Number(service.price)) {
 
-        alert(
-            "Insufficient wallet balance.\n\nPlease fund your wallet before purchasing a number."
-        );
+    showBalanceModal(service.price);
 
-        return;
+    return;
 
-    }
+}
 
     const confirmBuy = confirm(
 `🇺🇸 Buy USA Number
