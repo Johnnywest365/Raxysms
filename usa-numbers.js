@@ -257,30 +257,21 @@ searchInput.addEventListener("input",()=>{
 // ===============================
 
 
-continueBtn.addEventListener("click",()=>{
+continueBtn.addEventListener("click", async () => {
 
+    if (!selectedServiceData) {
 
-    if(!selectedServiceData){
-
-
-        alert("Please select a service first");
-
+        alert("Please select a service first.");
         return;
-
 
     }
 
+    continueBtn.disabled = true;
+    continueBtn.textContent = "Processing...";
 
+    await startPurchase();
 
-    console.log(
-        "Selected:",
-        selectedServiceData
-    );
-
-
-
-    // Next step:
-    // Purchase checking + wallet + dashboard redirect
-
+    continueBtn.disabled = false;
+    continueBtn.textContent = "Continue Purchase Number";
 
 });
