@@ -1,0 +1,397 @@
+/* ==========================================
+   RAXYSMS DASHBOARD
+   PART 1
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#0B1220;
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    padding-bottom:100px;
+}
+
+.dashboard-container{
+    width:100%;
+    max-width:500px;
+    margin:auto;
+    padding:20px;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.top-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:25px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#2563EB;
+}
+
+.tagline{
+    margin-top:5px;
+    color:#b5b5b5;
+    font-size:14px;
+    line-height:1.5;
+}
+
+.settings-btn{
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:12px;
+    background:#1A2332;
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.settings-btn:hover{
+    background:#2563EB;
+}
+
+/* ==========================
+   WELCOME
+========================== */
+
+.welcome-card{
+    margin-bottom:20px;
+}
+
+.welcome-card h2{
+    font-size:22px;
+    font-weight:600;
+}
+
+#username{
+    color:#4ADE80;
+}
+
+/* ==========================
+   WALLET
+========================== */
+
+.wallet-card{
+    background:#151F2E;
+    border-radius:20px;
+    padding:25px;
+    margin-bottom:25px;
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+}
+
+.wallet-card h3{
+    color:#B8C1CC;
+    font-size:15px;
+    margin-bottom:10px;
+}
+
+#walletBalance{
+    font-size:36px;
+    color:#FFD54A;
+    margin-bottom:20px;
+}
+
+/* ==========================================
+   RAXYSMS DASHBOARD
+   PART 2
+========================================== */
+
+/* ==========================
+   WALLET ACTIONS
+========================== */
+
+.wallet-actions{
+    display:flex;
+    gap:12px;
+}
+
+.wallet-actions button{
+    flex:1;
+    border:none;
+    border-radius:14px;
+    padding:14px;
+    background:#2563EB;
+    color:#fff;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.wallet-actions button:hover{
+    transform:translateY(-2px);
+    background:#1D4ED8;
+}
+
+/* ==========================
+   QUICK ACTIONS
+========================== */
+
+.quick-actions{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.action-card{
+    border:none;
+    border-radius:20px;
+    padding:25px 15px;
+    background:#151F2E;
+    color:#fff;
+    cursor:pointer;
+    transition:.3s;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.action-card:hover{
+    transform:translateY(-4px);
+    background:#2563EB;
+}
+
+.action-card span:first-child{
+    font-size:42px;
+}
+
+.action-card span:last-child{
+    font-size:17px;
+    font-weight:600;
+    text-align:center;
+}
+
+/* ==========================================
+   RAXYSMS DASHBOARD
+   PART 3
+========================================== */
+
+/* ==========================
+   RECENT ACTIVATIONS
+========================== */
+
+.activations-section{
+    margin-top:10px;
+    margin-bottom:90px;
+}
+
+.section-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.section-header h2{
+    font-size:18px;
+    font-weight:600;
+    color:#ffffff;
+}
+
+.refresh-btn{
+    border:none;
+    background:#2563EB;
+    color:#fff;
+    padding:10px 16px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.refresh-btn:hover{
+    background:#1D4ED8;
+}
+
+/* ==========================
+   TABLE
+========================== */
+
+.table-wrapper{
+    width:100%;
+    overflow-x:auto;
+    border-radius:18px;
+    background:#151F2E;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.activations-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:720px;
+}
+
+.activations-table thead{
+    background:#1C2738;
+}
+
+.activations-table th{
+    padding:16px;
+    text-align:left;
+    font-size:14px;
+    color:#D1D5DB;
+    font-weight:600;
+}
+
+.activations-table td{
+    padding:16px;
+    font-size:14px;
+    border-top:1px solid rgba(255,255,255,.06);
+}
+
+.empty-state{
+    text-align:center;
+    color:#94A3B8;
+    padding:35px;
+}
+
+/* ==========================
+   STATUS BADGES
+========================== */
+
+.status-waiting{
+    display:inline-block;
+    background:#F59E0B;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.status-complete{
+    display:inline-block;
+    background:#22C55E;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.status-cancelled{
+    display:inline-block;
+    background:#EF4444;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:600;
+}
+
+/* ==========================================
+   RAXYSMS DASHBOARD
+   PART 4
+========================================== */
+
+/* ==========================
+   BOTTOM NAVIGATION
+========================== */
+
+.bottom-nav{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    width:100%;
+    max-width:500px;
+    margin:0 auto;
+    background:#151F2E;
+    border-top:1px solid rgba(255,255,255,.08);
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    padding:10px 8px calc(10px + env(safe-area-inset-bottom));
+    z-index:1000;
+    box-shadow:0 -8px 25px rgba(0,0,0,.35);
+}
+
+.nav-item{
+    flex:1;
+    background:none;
+    border:none;
+    color:#94A3B8;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    cursor:pointer;
+    padding:8px 4px;
+    transition:.3s;
+}
+
+.nav-item i{
+    font-size:20px;
+}
+
+.nav-item span{
+    font-size:11px;
+    font-weight:600;
+}
+
+.nav-item:hover{
+    color:#2563EB;
+}
+
+.nav-item.active{
+    color:#2563EB;
+}
+
+.nav-item.active i{
+    transform:scale(1.1);
+}
+
+.nav-item.logout{
+    color:#EF4444;
+}
+
+.nav-item.logout:hover{
+    color:#DC2626;
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width:480px){
+
+    .dashboard-container{
+        padding:16px;
+    }
+
+    .wallet-actions{
+        flex-direction:column;
+    }
+
+    .quick-actions{
+        grid-template-columns:1fr;
+    }
+
+    .logo{
+        font-size:24px;
+    }
+
+    #walletBalance{
+        font-size:30px;
+    }
+
+}
