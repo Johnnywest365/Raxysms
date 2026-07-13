@@ -137,9 +137,13 @@ searchInput.addEventListener("input", () => {
         return;
     }
 
-    const filtered = allServices.filter(service =>
-        service.name.toLowerCase().includes(value)
-    );
+    console.log("All Services:", allServices);
+
+const filtered = allServices.filter(service =>
+    service.name.toLowerCase().includes(value)
+);
+
+console.log("Filtered Services:", filtered);
 
     if (filtered.length === 0) {
 
