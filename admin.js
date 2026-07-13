@@ -170,3 +170,37 @@ async function loadServices() {
     }
 
 }
+
+/* ==========================================
+   DELETE SERVICE
+========================================== */
+
+servicesList.addEventListener("click", async (e) => {
+
+    if (!e.target.classList.contains("delete-btn")) return;
+
+    const serviceId = e.target.dataset.id;
+
+    const confirmed = confirm(
+        "Are you sure you want to delete this service?"
+    );
+
+    if (!confirmed) return;
+
+    try {
+
+        await deleteDoc(doc(db, "services", serviceId));
+
+        loadServices();
+
+        alert("Service deleted successfully.");
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(error.message);
+
+    }
+
+});
