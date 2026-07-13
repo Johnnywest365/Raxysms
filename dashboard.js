@@ -415,3 +415,108 @@ function formatStatus(status) {
 ========================================== */
 
 console.log("✅ RaxySMS Dashboard Loaded Successfully");
+
+/* ==========================================
+   DASHBOARD MESSAGE
+========================================== */
+
+function showDashboardMessage() {
+
+    const messageBox = document.getElementById("dashboardMessage");
+    const messageText = document.getElementById("dashboardMessageText");
+
+    if (!messageBox || !messageText) return;
+
+    const type = sessionStorage.getItem("purchaseType");
+    const message = sessionStorage.getItem("purchaseMessage");
+
+    if (!type || !message) return;
+
+    messageBox.style.display = "block";
+    messageBox.className = "dashboard-message " + type;
+    messageText.textContent = message;
+
+    sessionStorage.removeItem("purchaseType");
+    sessionStorage.removeItem("purchaseMessage");
+
+    setTimeout(() => {
+        messageBox.style.display = "none";
+    }, 5000);
+
+}
+
+
+/* ==========================================
+   LOAD ACTIVE NUMBERS
+========================================== */
+
+async function loadActiveNumbers() {
+
+    const container = document.getElementById("activeNumbers");
+
+    if (!container || !currentUser) return;
+
+    container.innerHTML = "";
+
+    try {
+
+        const q = query(
+            collection(db, "activations"),
+            where("uid", "==", currentUser.uid),
+            orderBy("createdAt", "desc"),
+            limit(5)
+        );
+
+        const snapshot = await getDocs(q);
+
+        if (snapshot.empty) {
+
+            container.innerHTML = `
+                <div class="active-card">
+                    <h3>📱 Active Numbers</h3>
+                    <p>No active numbers.</p>
+                </div>
+            `;
+
+            return;
+        }
+
+        snapshot.forEach(docSnap => {
+
+            const data = docSnap.data();
+
+            let badge = "status-waiting";
+
+            if (data.status === "Received") {
+                badge = "status-success";
+            }
+
+            if (data.status === "Expired") {
+                badge = "status-expired";
+            }
+
+            container.innerHTML += `
+                <div class="active-card">
+
+                    <h3>${data.service || "-"}</h3>
+
+                    <p><strong>Number:</strong> ${data.phoneNumber || "-"}</p>
+
+                    <p><strong>SMS:</strong> ${data.smsCode || "Waiting for SMS..."}</p>
+
+                    <span class="status-badge ${badge}">
+                        ${data.status || "Waiting"}
+                    </span>
+
+                </div>
+            `;
+
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
+
+}
